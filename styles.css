@@ -1,0 +1,85 @@
+body {
+    background: linear-gradient(173deg, rgb(0, 183, 215), rgb(255, 190, 86));
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); 
+    padding: 20px;
+}
+
+.btn-tropical {
+    background-color: #FF5733;
+    border: 3px solid #FF7043;
+    color: white;
+}
+
+.btn-tropical:hover {
+    background-color: #FF7043;
+    color: white;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.644);
+    backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(189, 189, 189, 0.1), 0 0 15px;
+    padding: 10px 20px;
+}
+
+.fa-circle {
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #FF7043;
+}
+
+.fa-circle.text-success {
+    color: #28a745;
+}
+
+.timeline {
+    padding: 10px;
+    background: #fff3e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
+}
+
+.booking-item {
+    margin: 10px 0;
+    padding: 15px;
+    border-left: 5px solid #43b4ff; 
+    background: #fff8e1;
+    border-radius: 8px;
+}
+
+.booking-item.current {
+    border-left-color: #ff3333;
+    background: #ffe0b2; 
+}
+
+.booking-item i {
+    margin-right: 8px;
+    color: #43b4ff;
+}
+
+.booking-item.current i {
+    color: #ff3333; 
+}
+
+.btn-primary {
+    background-color: #FF7043;
+    border-color: #FF7043;
+}
+
+.text-decoration-none {
+    color: #FF5733; 
+}
+
+.text-decoration-none:hover {
+    color: #FF7043; 
+}
