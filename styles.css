@@ -83,3 +83,54 @@ body {
 .text-decoration-none:hover {
     color: #FF7043; 
 }
+
+/* Rating System Styles */
+.rating-display .stars {
+    font-size: 1rem;
+}
+
+.rating-input {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.rating-star {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #dee2e6;
+    filter: brightness(0.5);
+}
+
+.rating-star:hover {
+    transform: scale(1.1);
+}
+
+.rating-display .fa-star,
+.rating-display .fa-star-half-alt {
+    margin-right: 2px;
+}
+
+.stars .fa-star,
+.stars .fa-star-half-alt,
+.stars .far.fa-star {
+    color: #ffc107;
+}
+
+.room-card {
+    transition: transform 0.2s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+#ratingSummary h4 {
+    color: #FF7043;
+    font-weight: bold;
+}
+
+.border-bottom:last-child {
+    border-bottom: none !important;
+}

@@ -88,7 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Get rooms list with statistics
 $query = "SELECT r.*, 
           (SELECT COUNT(*) FROM reservations res WHERE res.id_sali = r.id) as total_reservations,
-          (SELECT COUNT(*) FROM reservations res WHERE res.id_sali = r.id AND res.status = 'approved' AND res.czas_stop > NOW()) as active_reservations
+          (SELECT COUNT(*) FROM reservations res WHERE res.id_sali = r.id AND res.status = 'approved' AND res.czas_stop > NOW()) as active_reservations,
+          COALESCE(r.srednia_ocena, 0) as srednia_ocena,
+          COALESCE(r.liczba_ocen, 0) as liczba_ocen
           FROM rooms r 
           ORDER BY r.id DESC";
 $result = $conn->query($query);
@@ -144,6 +146,7 @@ $result = $conn->query($query);
                                 <th>Pojemność</th>
                                 <th>Wyposażenie</th>
                                 <th>Status</th>
+                                <th>Ocena</th>
                                 <th>Rezerwacje</th>
                                 <th>Akcje</th>
                             </tr>
@@ -164,6 +167,32 @@ $result = $conn->query($query);
                                         <span class="badge bg-<?php echo (isset($room['dostepnosc']) && $room['dostepnosc']) ? 'success' : 'danger'; ?>">
                                             <?php echo (isset($room['dostepnosc']) && $room['dostepnosc']) ? 'Dostępna' : 'Niedostępna'; ?>
                                         </span>
+                                    </td>
+                                    <td>
+                                        <?php if ($room['liczba_ocen'] > 0): ?>
+                                            <div class="text-center">
+                                                <div class="stars mb-1">
+                                                    <?php 
+                                                    $avgRating = $room['srednia_ocena'];
+                                                    for ($i = 1; $i <= 5; $i++): 
+                                                        if ($i <= $avgRating) {
+                                                            echo '<i class="fas fa-star text-warning"></i>';
+                                                        } elseif ($i - 0.5 <= $avgRating) {
+                                                            echo '<i class="fas fa-star-half-alt text-warning"></i>';
+                                                        } else {
+                                                            echo '<i class="far fa-star text-warning"></i>';
+                                                        }
+                                                    endfor; 
+                                                    ?>
+                                                </div>
+                                                <small class="text-muted">
+                                                    <?php echo number_format($avgRating, 1); ?> 
+                                                    (<?php echo $room['liczba_ocen']; ?> ocen)
+                                                </small>
+                                            </div>
+                                        <?php else: ?>
+                                            <small class="text-muted">Brak ocen</small>
+                                        <?php endif; ?>
                                     </td>
                                     <td>
                                         <small class="text-muted">
