@@ -58,6 +58,7 @@ $unread_count = $stmt->get_result()->fetch_assoc()['unread_count'];
                 <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'Menedzer'): ?>
                     <a href="admin/admin_dashboard.php" class="nav-link">Panel Administracyjny</a>
                 <?php endif; ?>
+                <a class="nav-link" href="index.php">Strona główna</a>
                 <a class="nav-link" href="profile.php">Mój profil</a>
                 <a class="nav-link active" href="notifications.php">
                     Powiadomienia 
@@ -65,6 +66,9 @@ $unread_count = $stmt->get_result()->fetch_assoc()['unread_count'];
                         <span class="badge bg-danger"><?php echo $unread_count; ?></span>
                     <?php endif; ?>
                 </a>
+                <a class="nav-link" href="calendar.php">Kalendarz</a>
+                <a class="nav-link" href="templates.php">Szablony</a>
+                <a class="nav-link" href="reservations.php">Moje rezerwacje</a>
                 <a class="nav-link" href="logout.php">Wyloguj</a>
             </div>
         </div>

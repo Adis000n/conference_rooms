@@ -46,6 +46,8 @@ $rooms_result = $conn->query($rooms_query);
                     <?php endif; ?>
                 </a>
                 <a class="nav-link active" href="calendar.php">Kalendarz</a>
+                <a class="nav-link" href="templates.php">Szablony</a>
+                <a class="nav-link" href="reservations.php">Moje rezerwacje</a>
                 <a class="nav-link" href="logout.php">Wyloguj</a>
             </div>
         </div>

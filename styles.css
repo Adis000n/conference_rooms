@@ -49,6 +49,51 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
 }
 
+/* Template specific styles */
+.template-card {
+    transition: transform 0.2s;
+    border: 2px solid transparent;
+}
+
+.template-card:hover {
+    transform: translateY(-2px);
+    border-color: #007bff;
+}
+
+.template-card .card-body {
+    padding: 1rem;
+}
+
+.template-card .card-title {
+    color: #0056b3;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.use-template-btn {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: none;
+    transition: all 0.2s;
+}
+
+.use-template-btn:hover {
+    background: linear-gradient(45deg, #218838, #1ba085);
+    transform: scale(1.05);
+}
+
+.room-quick-btn:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.template-use-btn:hover {
+    background: linear-gradient(45deg, #218838, #1ba085);
+    color: white;
+    border-color: transparent;
+    transform: scale(1.02);
+}
+
 .booking-item {
     margin: 10px 0;
     padding: 15px;

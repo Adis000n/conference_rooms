@@ -11,6 +11,9 @@ Kompletny system do zarządzania salami konferencyjnymi z możliwością rezerwa
 - ✅ System rezerwacji z kalendarzem
 - ✅ Powiadomienia o statusie rezerwacji
 - ✅ Historia własnych rezerwacji
+- 🆕 **Szablony rezerwacji** - tworzenie predefiniowanych konfiguracji
+- 🆕 **Szybka rezerwacja** - używanie szablonów do błyskawicznego rezerwowania
+- 🆕 **Anulowanie rezerwacji** - możliwość anulowania własnych rezerwacji
 
 ### Moduł Administratora
 - ✅ Panel administracyjny z pełnym dostępem
@@ -26,6 +29,15 @@ Kompletny system do zarządzania salami konferencyjnymi z możliwością rezerwa
 - ✅ Walidacja konfliktów rezerwacji
 - ✅ System statusów (oczekujące, zatwierdzone, odrzucone, anulowane)
 - ✅ Opisy rezerwacji
+- 🆕 **Integracja z szablonami** - wybór szablonu podczas rezerwacji
+- 🆕 **Automatyczne wypełnianie** - formularze wypełniane na podstawie szablonów
+
+### 🆕 Nowy Moduł Szablonów
+- ✅ Tworzenie nazwanych szablonów rezerwacji
+- ✅ Definiowanie czasu trwania i opisu
+- ✅ Zarządzanie własnymi szablonami
+- ✅ Używanie szablonów przy nowych rezerwacjach
+- ✅ Tworzenie szablonów z istniejących rezerwacji
 
 ### Bezpieczeństwo
 - ✅ Hasła szyfrowane z password_hash()
@@ -41,6 +53,7 @@ Kompletny system do zarządzania salami konferencyjnymi z możliwością rezerwa
 - rooms: informacje o salach (ID, nazwa, pojemność, wyposażenie, dostępność)  
 - reservations: dane rezerwacji (ID, użytkownik, sala, czas, status, opis)
 - notifications: powiadomienia (ID, użytkownik, wiadomość, typ, status)
+- reservation_templates: 🆕 szablony rezerwacji (ID, użytkownik, nazwa, sala, czas_trwania, opis)
 ```
 
 ## 🛠️ Instalacja
@@ -48,6 +61,14 @@ Kompletny system do zarządzania salami konferencyjnymi z możliwością rezerwa
 ### Wymagania
 - XAMPP (Apache + MySQL + PHP 7.4+)
 - Przeglądarka internetowa
+
+### 🆕 Aktualizacja dla szablonów
+1. Uruchom `setup_templates.php` aby utworzyć nową tabelę `reservation_templates`
+2. Nowe pliki zostały automatycznie dodane:
+   - `templates.php` - zarządzanie szablonami
+   - `reservations.php` - historia rezerwacji i szybka rezerwacja
+   - `get_user_templates.php` - API szablonów
+   - `cancel_reservation.php` - anulowanie rezerwacji
 
 ### Kroki instalacji
 

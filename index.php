@@ -48,6 +48,8 @@ $result = $conn->query($query);
                     <?php endif; ?>
                 </a>
                 <a class="nav-link" href="calendar.php">Kalendarz</a>
+                <a class="nav-link" href="templates.php">Szablony</a>
+                <a class="nav-link" href="reservations.php">Moje rezerwacje</a>
                 <a class="nav-link" href="logout.php">Wyloguj</a>
             </div>
         </div>
@@ -115,7 +117,22 @@ $result = $conn->query($query);
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="reservationStatus"></div>                    <form id="reservationForm" class="d-none">
+                    <div id="reservationStatus"></div>
+                    
+                    <!-- Template Selection -->
+                    <div id="templateSelection" class="mb-3 d-none">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title"><i class="fas fa-bookmark text-primary"></i> Użyj szablon</h6>
+                                <select class="form-select" id="templateSelect">
+                                    <option value="">Wybierz szablon lub utwórz rezerwację ręcznie</option>
+                                </select>
+                                <small class="form-text text-muted">Wybierz szablon, aby szybko wypełnić formularz</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="reservationForm" class="d-none">
                         <div class="mb-3">
                             <label for="bookingDate" class="form-label">Data rezerwacji</label>
                             <input type="date" class="form-control" name="bookingDate" id="bookingDate" required>
@@ -132,7 +149,10 @@ $result = $conn->query($query);
                             <label for="description" class="form-label">Opis rezerwacji (opcjonalnie)</label>
                             <textarea class="form-control" name="description" id="description" rows="3" placeholder="Cel spotkania, liczba uczestników itp."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Zarezerwuj</button>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">Zarezerwuj</button>
+                            <button type="button" class="btn btn-outline-secondary" id="clearFormBtn">Wyczyść</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -187,7 +207,7 @@ $result = $conn->query($query);
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/reservations.js"></script>
+    <script src="js/reservations_enhanced.js"></script>
     <script>
         function updateRoomStatuses() {
             fetch('check_rooms_status.php')

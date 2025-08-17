@@ -74,7 +74,19 @@ $reservations_result = $stmt->get_result();
 <body>
     <nav class="navbar navbar-expand-lg navbar-light mb-4">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Powrót</a>
+            <a class="navbar-brand" href="index.php">Sale konferencyjne</a>
+            <div class="navbar-nav ms-auto">
+                <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'Menedzer'): ?>
+                    <a href="admin/admin_dashboard.php" class="nav-link">Panel Administracyjny</a>
+                <?php endif; ?>
+                <a class="nav-link" href="index.php">Strona główna</a>
+                <a class="nav-link active" href="profile.php">Mój profil</a>
+                <a class="nav-link" href="notifications.php">Powiadomienia</a>
+                <a class="nav-link" href="calendar.php">Kalendarz</a>
+                <a class="nav-link" href="templates.php">Szablony</a>
+                <a class="nav-link" href="reservations.php">Moje rezerwacje</a>
+                <a class="nav-link" href="logout.php">Wyloguj</a>
+            </div>
         </div>
     </nav>
 
